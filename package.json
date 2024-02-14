@@ -1,0 +1,56 @@
+{
+  "name": "vue3-vite-typescript-pinia-boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "20.11.0"
+  },
+  "type": "module",
+  "scripts": {
+    "postinstall": "run-s postinstall:*",
+    "postinstall:api": "cd api && npm install",
+    "dev": "vite",
+    "build": "run-s build:*",
+    "build:api": "cd api && npx --package typescript tsc",
+    "build:api-post": "node ./api/devops/npm/build.js --post",
+    "build:webapp": "run-p type-check \"build-only {@}\" --",
+    "build:copy-webapp": "cp -r ./dist ./api/dist/ui",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "clean": "run-s clean:*",
+    "clean:api": "cd api && rm -rf dist",
+    "clean:webapp": "rm -rf dist",
+    "cleanCi": "run-s cleanCi:*",
+    "cleanCi:api": "cd api && rm -rf node_modules",
+    "cleanCi:webapp": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "pinia": "2.1.7",
+    "vue": "3.4.18",
+    "vue-router": "4.2.5"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "1.7.2",
+    "@tsconfig/node20": "20.1.2",
+    "@types/jsdom": "21.1.6",
+    "@types/node": "20.11.17",
+    "@vitejs/plugin-vue": "5.0.4",
+    "@vue/eslint-config-prettier": "9.0.0",
+    "@vue/eslint-config-typescript": "12.0.0",
+    "@vue/test-utils": "2.4.4",
+    "@vue/tsconfig": "0.5.1",
+    "eslint": "8.56.0",
+    "eslint-plugin-vue": "9.21.1",
+    "jsdom": "24.0.0",
+    "npm-run-all2": "6.1.2",
+    "prettier": "3.2.5",
+    "typescript": "5.3.3",
+    "vite": "5.1.1",
+    "vitest": "1.2.2",
+    "vue-tsc": "1.8.27"
+  }
+}
