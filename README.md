@@ -50,3 +50,11 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+### Testing sample APIs
+
+https://api.publicapis.org/entries
+https://catfact.ninja/fact
+https://api.coindesk.com/v1/bpi/currentprice.json
+https://www.boredapi.com/api/activity
+https://dog.ceo/api/breeds/image/random

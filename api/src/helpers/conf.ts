@@ -15,6 +15,7 @@ export default new class Configuration {
   public jiraApiURL: string;
   public jiraUsername: string;
   public jiraApiToken: string;
+  public JWTSecret: string;
   constructor () {
     this.dev = process.env.TS_NODE_DEV === 'true';
     this.port = +process.env.PORT || 8080;
@@ -29,5 +30,6 @@ export default new class Configuration {
     this.jiraApiURL = process.env.JIRA_API_URL || '';
     this.jiraUsername = process.env.JIRA_USERNAME || '';
     this.jiraApiToken = process.env.JIRA_API_TOKEN || '';
+    this.JWTSecret = process.env.JWT_SECRET || 'MyJwtSecret';
   }
 }();

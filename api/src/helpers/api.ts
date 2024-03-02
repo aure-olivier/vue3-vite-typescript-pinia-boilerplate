@@ -9,9 +9,27 @@ export type Request<T = SafeAny> = Express.Request<Record<string, string>, SafeA
 
 export type Response = Express.Response;
 
+export type CookieData = {
+  name: string
+  val: string;
+  options?: Express.CookieOptions;
+}
+
 export class SuccessResponse {
   constructor (req: Request, res: Response, data?: unknown) {
     res.status(200).json({
+      status: {
+        code: 200,
+        message: 'OK'
+      },
+      data
+    });
+  }
+}
+
+export class SuccessResponseWithCookie {
+  constructor (req: Request, res: Response, cookie:CookieData, data?: unknown) {
+    res.cookie(cookie.name, cookie.val, cookie.options).status(200).json({
       status: {
         code: 200,
         message: 'OK'
@@ -30,25 +48,25 @@ export class DownloadResponse {
 }
 
 export class InternalErrorResponse {
-  constructor (req: Request, res: Response, data?: unknown) {
+  constructor (req: Request, res: Response, error?: unknown) {
     res.status(500).json({
       status: {
         code: 500,
         message: 'Internal Error'
       },
-      data
+      error
     });
   }
 }
 
 export class BadRequestErrorResponse {
-  constructor (req: Request, res: Response, data?: unknown) {
+  constructor (req: Request, res: Response, error?: unknown) {
     res.status(400).json({
       status: {
         code: 400,
         message: 'Bad Request'
       },
-      data
+      error
     });
   }
 }

@@ -18,12 +18,20 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/hello',
-      name: 'hello',
+      path: '/jira',
+      name: 'jira',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/HelloView.vue')
+      component: () => import('../views/JiraView.vue')
+    },
+    {
+      path: '/publicentries',
+      name: 'publicentries',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PublicEntriesView.vue')
     }
   ]
 })

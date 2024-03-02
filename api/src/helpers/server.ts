@@ -17,11 +17,11 @@ export const server = http.createServer(app);
 
 app.use((req, res, next) => {
   logger.debug(`-> "${req.originalUrl}"`);
-  if (req.originalUrl === '/my-secure-route') {
-    next();
-  } else {
-    next();
-  }
+  // if (req.originalUrl === '/my-secure-route') {
+  //   next();
+  // } else {
+  next();
+  // }
 });
 
 app.use(express.static(path.resolve(__dirname, '../ui/')))

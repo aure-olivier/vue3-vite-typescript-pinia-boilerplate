@@ -33,3 +33,46 @@ a,
     padding: 0 2rem;
   }
 }
+
+.entries {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid aquamarine;
+
+  .entry {
+
+    display: flex;
+    flex-direction: row;
+    padding: 1px 0px 1px 5px;
+
+    .label {
+      min-width: 100px;
+      font-weight: 700;
+    }
+
+    .value {
+      font-style: italic;
+    }
+
+  }
+}
+
+.tickets-container {
+  .ticket {
+    margin-top: 5px;
+    border: 1px dashed cadetblue;
+    padding: 1px 0px 1px 3px;
+
+    &:hover {
+      background-color: hsla(160, 100%, 37%, 1);
+    }
+  }
+}
+
+.about-container {
+  width: 200px;
+  margin: auto;
+}
